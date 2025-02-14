@@ -1,0 +1,67 @@
+.loadingContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.loading {
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #3498db;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.block {
+    display: inline-block;
+}
+
+.h1 {
+    text-align: center;
+}
+
+.container {
+    background-color: black;
+    width: 85%;
+    height: 30%;
+    margin: 25px auto;
+    margin-bottom: 100px;
+    border-radius: 50px;
+    text-align: center;
+    color: white;
+    padding: 10px;
+    float: left;
+}
+
+.container:nth-child(2n) {
+    float: right;
+}
+
+.img {
+    float: left;
+    border-radius: 50px;
+    background-color: white;
+}
+
+.edad,
+.email,
+.descripcion {
+    color: black;
+}
+
+.container:hover .edad,
+.container:hover .email,
+.container:hover .descripcion {
+    background-color: black;
+    color: white;
+}
+
+
