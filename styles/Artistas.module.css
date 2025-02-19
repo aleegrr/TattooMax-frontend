@@ -20,10 +20,6 @@
     100% { transform: rotate(360deg); }
 }
 
-.block {
-    display: inline-block;
-}
-
 .h1 {
     text-align: center;
 }
@@ -38,11 +34,6 @@
     text-align: center;
     color: white;
     padding: 10px;
-    float: left;
-}
-
-.container:nth-child(2n) {
-    float: right;
 }
 
 .img {

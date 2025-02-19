@@ -1,202 +1,170 @@
+/* PerfilAdmin.module.css */
+
 .loadingContainer {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    margin-top: 20px;
-}
-
-.loading {
-    border: 6px solid #f3f3f3;
-    border-top: 6px solid #3498db;
+    height: 100vh; /* Asegura que el contenedor ocupa toda la pantalla */
+    background-color: #f0f0f0; /* Fondo suave para la carga */
+  }
+  
+  .loading {
+    border: 16px solid #f3f3f3; /* Borde gris claro */
+    border-top: 16px solid black; /* Borde azul */
     border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite; /* Animación de giro */
+    margin-bottom: 20px; /* Espacio debajo del spinner */
+  }
+  
+  @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
-}
-
-.datosUser {
-    margin: 20px;
-}
-
-.userAdmin {
+  }
+  
+  
+  .datosUser {
     display: flex;
-    align-items: center;
-}
-
-.img {
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    margin-top: 20px; /* Espacio superior */
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #f8f8f8; /* Un fondo sutilmente más oscuro */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  }
+  
+  .userAdmin {
+    display: flex;
+    align-items: center; /* Alinea verticalmente los elementos */
+    margin-right: 40px; /* Espacio entre imagen y datos */
+  }
+  
+  .img {
+    border-radius: 50%; /* Hace la imagen circular */
+    overflow: hidden; /* Recorta cualquier parte de la imagen que se salga del círculo */
+    margin-right: 20px;
+  }
+  
+  .datos {
+    display: flex;
+    flex-direction: column; /* Datos en columna */
+  }
+  
+  .datos p {
+    margin: 5px 0; /* Espacio entre párrafos */
+  }
+  
+  .containerUsers, .containerCitas {
+    margin: 20px auto; /* Centrar horizontalmente y espacio arriba/abajo */
+    max-width: 900px; /* Ancho máximo del contenedor */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .containerUsers h2, .containerCitas h2 {
+    margin-bottom: 20px;
+    color: #333; /* Color de texto más oscuro */
+  }
+  
+  .user, .cita {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten a varias líneas */
+    align-items: center; /* Centrar verticalmente */
+  }
+  
+  .divUsers, .divCita {
+      flex: 1 0 0;
+      margin-bottom: 10px;
+      text-align: center;
+  }
+  
+  .imgUsers {
+    border-radius: 50%;
     margin-right: 10px;
-}
-
-.datos {
-    line-height: 1.6;
-}
-
-.containerUsers{
-    margin: 20px;
-    text-align: center;
-}
-
-.users{
-    border: 1px solid black;
-    max-height: 300px;
-    overflow-y: auto;
-}
-
-.user{
-    border-bottom: 1px solid rgb(32, 32, 32);
-    padding: 5px;
-    margin-bottom: 10px;
-}
-
-.imgUsers{
-    border-radius: 100%;
-}
-
-.nameUsers{
+  }
+  
+  .nameUsers, .ArtistCita {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .popupButton, .openCita {
+      background-color: black; /* Azul */
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease; /* Transición suave */
+      margin: 5px;
+  }
+  
+  .popupButton:hover, .openCita:hover {
+      background-color: black; /* Azul más oscuro al pasar el ratón */
+  }
+  
+  
+  .popupContent {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: relative; /* Para posicionar el botón de cierre */
+  }
+  
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
     font-size: 20px;
-}
-
-.containerCitas{
-    margin: 20px;
-    text-align: center;
-}
-
-.citas{
-    border: 1px solid black;
-    max-height: 300px;
-    overflow-y: auto;
-}
-
-.cita{
-    border-bottom: 1px solid rgb(32, 32, 32);
-    padding: 5px;
-    margin-bottom: 10px;
-}
-
-.openCita {
-    background-color: #202327;
-    color: #fff; 
-    border: none;
     cursor: pointer;
-    border-radius: 5px;
-}
-
-.popupButton {
-    background-color: #202327;
-    color: #fff; 
     border: none;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.popupButton:hover, .perfilButton:hover{
-    background-color: rgb(66, 66, 66);
-}
-
-.buttonSi {
-    background-color: #dc3545;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: 10px;
-}
-
-.buttonNo {
-    background-color: #797777;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: 10px;
-}
-
-.modalContainerRemoveUser {
-    position: fixed;
-    display: none;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.modalContentRemoveUser {
-    background-color: black;
+    background: none;
+  }
+  
+  .buttonSi, .buttonNo {
+    background-color: black; /* Verde */
     color: white;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.modal{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.modalContent{
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.close {
-    cursor: pointer;
-    position: relative;
-    display: block;
-    line-height: 20px;
-    font-size: 24px;
-    background: #ffffff;
-    border-radius: 18px;
-}
-
-.header {
-    width: 100%;
-    border-bottom: 1px solid gray;
-    font-size: 18px;
-    text-align: center;
-    padding: 5px;
-}
-
-.button {
-    width: 70%;
-    background-color: #212529;
-    color: #fff;
+    padding: 10px 15px;
     border: none;
-    padding: 10px 20px;
-    cursor: pointer;
     border-radius: 5px;
-    margin-top: 10px;
-}
-
-.button:hover{
-    background-color: rgb(43, 43, 43);
-}
-
-.modalContainerOk {
-    position: fixed;
-    display: none;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.modalContentOk {
-    background-color: black;
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-}
+    cursor: pointer;
+    margin: 0 5px; /* Espacio entre botones */
+  }
+  
+  .buttonNo {
+    background-color: #f44336; /* Rojo */
+  }
+  
+  .modalContainerRemoveUser {
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+      display: none;
+  }
+  
+  .modalContentRemoveUser {
+      background-color: #fefefe;
+      margin: 15% auto; /* 15% from the top and centered */
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%; /* Could be more or less */
+  }
+  /* ... otros estilos ... */

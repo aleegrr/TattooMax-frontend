@@ -1,22 +1,26 @@
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
-import Nav from '/components/nav';
-import Footer from '/components/footer';
-import style from '/styles/Artistas.module.css';
-import Link from 'next/link';
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import Nav from "/components/nav";
+import Footer from "/components/footer";
+import style from "/styles/Artistas.module.css";
+import Link from "next/link";
 
 export default function Artists() {
   let [artists, setArtists] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  
+
   useEffect(() => {
-      fetch('https://tattoomax-backend-48q8.onrender.com/artists').then(res => res.json()).then(data => {setArtists(data); setIsLoading(false);});
-  }, [])
-  
+    fetch("https://tattoomax-backend-48q8.onrender.com/artists")
+      .then((res) => res.json())
+      .then((data) => {
+        setArtists(data);
+        setIsLoading(false);
+      });
+  }, []);
+
   const removeAccents = (str) => {
-      return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-  } 
-  
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  };
 
   return (
     <div>
@@ -24,32 +28,51 @@ export default function Artists() {
         <Nav />
       </div>
       {/* Mostrar un mensaje de carga mientras se cargan los datos */}
-      {isLoading && 
+      {isLoading && (
         <>
           <div className={style.loadingContainer}>
             <div className={style.loading}></div>
             <p>Cargando...</p>
           </div>
-          <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
         </>
-      }
+      )}
       {/* Mostrar los datos del artista una vez que se han recibido */}
       {!isLoading && (
         <>
           <div className={style.block}>
             <h1 className={style.h1}>ARTISTAS</h1>
-            {artists.map(artista => {
-              let artist = artista.name.replace(/\s+/g, '');
+            {artists.map((artista) => {
+              let artist = artista.name.replace(/\s+/g, "");
               artist = removeAccents(artist);
               return (
-                <Link key={artist} href="/artista/[artist]" as={`/artista/${artist}`}>
-                  <a className={style.container}>
-                    <Image src={artista.imagen} alt='imgArtist' className={style.img} width="100px" height="100px"/>
-                    <h1 className={style.h1}>{artista.name}</h1><br/>
+                <Link
+                  key={artist}
+                  href="/artista/[artist]"
+                  as={`/artista/${artist}`}
+                >
+                  <div className={style.container}>
+                    <Image
+                      src={artista.imagen}
+                      alt="imgArtist"
+                      className={style.img}
+                      width={100}
+                      height={100}
+                    />
+                    <h1 className={style.h1}>{artista.name}</h1>
+                    <br />
                     <p className={style.edad}>Edad: {artista.edad}</p>
                     <p className={style.email}>Email: {artista.email}</p>
                     <p className={style.descripcion}>{artista.descripcion}</p>
-                  </a>
+                  </div>
                 </Link>
               );
             })}
@@ -57,8 +80,8 @@ export default function Artists() {
         </>
       )}
       <div>
-        <Footer/>
+        <Footer />
       </div>
     </div>
-  )
+  );
 }

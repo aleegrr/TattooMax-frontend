@@ -1,77 +1,106 @@
-.cabeceraContainer {
-  position: relative;
-  background: black;
-  overflow: hidden;
-  text-align: center;
-  color: white;
+.pageContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif; /* Add a default font-family */
+  background-color: #f8f8f8; /* Softer background */
+  color: #333; /* Default text color */
 }
 
-.cabeceraContainer:before {
-  content: '';
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 0;
+.mainContent {
+  flex: 1;
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
   width: 100%;
-  height: 100%;
-  z-index: 1;
-  opacity: 0.6;
-  background-image: url('../public/imagenLocal.png');
-  background-repeat: no-repeat;
-  background-position: 50% 0;
-  background-size: cover;
+}
+
+.cabeceraContainer {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, #282c34 0%, #3e4451 100%); /* Darker, more modern */
+  border-radius: 10px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
 }
 
 .cabecerah1 {
-  padding-top: 50px;
-  position: relative;
-  z-index: 2;
-  margin-top: 200px;
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600; /* Slightly bolder */
 }
 
 .cabecerah3 {
-  position: relative;
-  z-index: 2;
-  padding-bottom: 50px;
-  padding-top: 25px;
-  opacity: 0.8;
+  font-size: 1.5rem;
+  color: #eeeeee; /* Lighter color */
+  font-weight: 400; /* Slightly less bold */
 }
 
-.h1 {
-  text-align: center;
+.gallerySection {
+  margin-bottom: 4rem;
 }
 
 .sliderContainer {
-  text-align: center;
+  max-width: 800px;
+  max-height: 500px; /* Ajusta este valor según tus necesidades */
+  margin: 0 auto;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  overflow: hidden;
+  aspect-ratio: 16/9;
 }
 
-.img {
-  margin-right: 20%;
-  margin-left: 20%;
+.slideItem {
+  position: relative;
+}
+
+.slideImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 16/9;
+}
+
+.slideCaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6); /* Slightly more transparent */
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.1rem;
 }
 
 .ofertaContainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 0; /* Elimina el espacio entre las imágenes */
+  margin: 4rem 0;
+  padding: 0; /* Elimina el padding del contenedor */
 }
 
 .oferta {
-  position: relative;
-  width: 100%; 
-  max-width: 400px; 
-  height: auto;
-  margin: 20px;
   perspective: 1000px;
+  cursor: pointer;
+  border: none; /* Elimina cualquier borde en el contenedor */
 }
 
 .carta {
   position: relative;
   width: 100%;
-  height: 0;
-  padding-bottom: 100%;
+  height: 400px;
+  transition: transform 0.6s;
   transform-style: preserve-3d;
-  transition: transform 0.5s;
+  border: none; /* Elimina cualquier borde en la carta */
+}
+
+.voltear .carta {
+  transform: rotateY(180deg);
 }
 
 .cara,
@@ -80,33 +109,55 @@
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-}
-
-.voltear .carta {
-  transform: rotateY(180deg);
+  border-radius: 0; /* Elimina el border-radius de las caras */
+  overflow: hidden;
+  box-shadow: none; /* Elimina las sombras en las caras */
+  border: none; /* Elimina cualquier borde en las caras */
 }
 
 .caraDetras {
   transform: rotateY(180deg);
 }
 
-.caraVisible {
-  visibility: visible;
-  opacity: 1;
-}
-
-.caraDetras .caraVisible {
-  transform: rotateY(0deg);
-}
-
 .informacion {
   text-align: center;
+  padding: 2rem;
+  background: #ffffff;  /* White background for contrast */
+  border-radius: 10px;
+  margin-top: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.informacion h3 {
+  color: #333;
+  margin-bottom: 2rem;
+  font-size: 1.7rem; /* Slightly larger */
+  font-weight: 500;
+}
+
+.linkContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem; /* Slightly larger gap */
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .link {
-  color: blue;
-  text-decoration: underline blue;
-  display: inline;
+  display: block;
+  padding: 1.2rem 2.2rem; /* More padding */
+  background: #333;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px; /* More rounded */
+  transition: all 0.3s ease;
+  font-weight: 500;
+  text-align: center; /* Center text within links */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow on links */
 }
 
-
+.link:hover {
+  background: #444;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* More pronounced on hover */
+}

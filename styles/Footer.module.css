@@ -26,9 +26,3 @@
 .untap{
     cursor: pointer ;
 }
-
-@media (max-width: 768px) {
-    .div {
-        flex-basis: 100%;
-    }
-}
